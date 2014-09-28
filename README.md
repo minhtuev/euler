@@ -1,4 +1,4 @@
 Euler
 =====
 
-Repo for project Euler codes
+Repo for project Euler codes for fun
