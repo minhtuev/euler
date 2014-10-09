@@ -30,6 +30,7 @@ circlar_prime = {}
 count = 0
 
 for i in range(2, 1000000):
+	print "at:", i
 	if not(i in circlar_prime) and is_prime2(i):
 		L = get_circular_number(i)
 		all_primes = True
