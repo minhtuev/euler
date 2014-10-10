@@ -8,7 +8,9 @@ def is_pandigital(s):
 
 m = 0
 base = -1
-for i in range(1, 500000):
+# note: this problem can be solved with pen and paper by simple consideration
+# of the base number
+for i in range(1, 40000):
 	s = ''
 	for j in range(1, 10):
 		s += str(i*j)

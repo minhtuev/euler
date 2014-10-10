@@ -1,5 +1,8 @@
 count = 0
 
+# notice the recursive definition, we can prove that 
+# there are no more than 11 such numbers.
+
 def is_prime(n, L = [2], dic = {1:False, 2:True}):
 	if not(n in dic):
 		for u in L:
