@@ -20,7 +20,7 @@ while (D == -1):
 	Pk1 = get_number(k+1)
 	Pk0 = get_number(k-1)
 	Pj = get_number(index)
-	print "k=", k
+	#print "k=", k
 	while (index >= 1) and (Pj + Pk >= Pk1) and (Pk - Pj <= Pk0):
 		if is_pentagon(Pk - Pj) and is_pentagon(Pk + Pj):
 			D = Pk - Pj
