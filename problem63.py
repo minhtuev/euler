@@ -7,7 +7,7 @@ for n in range(1, 10):
 		if len(str(power)) == index:
 			print n, index, power
 			count += 1
-		if power <= 10**(index - 3 ):
+		if power <= 10**(index - 1):
 			break
 		index += 1
 
