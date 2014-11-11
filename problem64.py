@@ -2,7 +2,7 @@ def get_str(a, b, c, N):
 	return str(a)+ " + (" + str(N) + "^0.5 + " + str(b) + ")/" + str(c) 
 
 def is_perfect_square(N):
-	n = N**0.5
+	n = int(N**0.5)
 	if n**2 == N:
 		return True
 	return False
