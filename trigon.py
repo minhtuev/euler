@@ -20,7 +20,7 @@ for A in L:
 						continue
 					dic[D] = True
 					E = A + B - D
-					if E in L and E < A + C:
+					if E in L and E < A + C and dic[E] == False:
 						dic[E] = True
 						F = A + C - E
 						if F in L and dic[F] == False and F > A:
