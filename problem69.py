@@ -26,19 +26,36 @@ def totient3(n):
 		count = count*(1 - 1.0/f)
 	return count
 
+def totient4(n, dic = {}):
+	m = n
+	if not(n in dic):
+		index = 2
+		dic[m] = 1
+		while (n > 1):
+			if n % index == 0:
+				dic[m] = 1 - 1.0/index
+				while (n % index) == 0:
+					n = n / index
+					dic[m] = dic[m]*index
+				if n > 1:
+					dic[m] = dic[m]*totient4(n)
+					n = 1
+			index += 1
+	return dic[m]
+
+# ideas: phi(n) = n*product((1 - 1/p_i))
+# n/phi(n) = 1/[product(1 - 1/p_i)] => max
+# product(1 - 1/p_i) => min => 1/p_i must be maximized => p_i must be minimized
 def main():
 	max_value = 0
 	dic = {}
 	primes = []
 	for n in range(2, 1000001):
-		L = get_prime_factors(n)
-		dic[n] = Set()
-		for f in L:
-			dic[n].add(f)
-		if float(n)/totient2(n, dic) > max_value:
-			max_value = float(n) / totient2(n, dic)
-			print n, totient2(n, dic), max_value
+		if float(n)/totient4(n) > max_value:
+			max_value = float(n) / totient4(n)
+			print n, totient4(n), max_value
 
 print get_prime_factors(1298)
 print get_prime_factors(649)
-main()
+# main()
+print get_prime_factors(510510)
