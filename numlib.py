@@ -1,3 +1,24 @@
+def is_permutation(n, m):
+	n = list(str(n))
+	m = list(str(m))
+	if len(n) != len(m):
+		return False
+	n.sort()
+	m.sort()
+	for index in range(len(n)):
+		if n[index] != m[index]:
+			return False
+	return True
+
+def is_prime(n, dic = {}):
+	if not(n in dic):
+		for i in range(2, int(n**0.5) + 1):
+			if n % i == 0:
+				dic[n] = False
+				return dic[n]
+		dic[n] = True
+	return dic[n]
+
 def gcd(a, b, dic = {}):
 	if not((a, b) in dic):
 		if b % a == 0:
