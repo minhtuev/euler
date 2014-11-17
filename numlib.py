@@ -10,6 +10,15 @@ def is_permutation(n, m):
 			return False
 	return True
 
+def get_circular_number(n):
+	s = str(n)
+	L = []
+	for i in range(len(s)):
+		if not(int(s) in L):
+			L.append(int(s))
+		s = s[-1] + s[0:len(s)-1]
+	return L
+
 def is_prime(n, dic = {}):
 	if not(n in dic):
 		for i in range(2, int(n**0.5) + 1):
