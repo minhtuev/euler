@@ -23,22 +23,25 @@ def is_pairs(pairs, u):
 
 def main():
 	L = [3, 7]
-	R = {3:[[3], [3,7]], 7:[[7]]}
+	R = {3:[(3,7)], 7:[]}
 	n = 11
 	while (True):
 		if (is_prime(n)):
 			print n
 			for u in L:
 				if is_pair(u, n):
+					temp = [(u, n)]
 					for pairs in R[u]:
 						if not(n in pairs) and is_pairs(pairs, n):
-							pairs.append(n)
-							if len(pairs) == 5:
-								print pairs
+							new_pairs = pairs + (n,)
+							if len(new_pairs) == 5:
+								print new_pairs
+								print sum(new_pairs)
 								return
+							temp.append(new_pairs)
+					R[u].extend(temp)
+			R[n] = []
 			L.append(n)
-			R[n] = [[n]]
-
 		n += 2
 
 main()
