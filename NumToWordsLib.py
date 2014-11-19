@@ -32,7 +32,7 @@ def numToWords(num):
             if h >= 1:
                 words.append(units[h])
                 words.append("hundred")
-                if h>= 1: words.append("and")
+                if t >= 1 or u>=1: words.append("and")
                     
                 
             if t > 1:
