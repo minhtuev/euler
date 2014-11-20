@@ -1,6 +1,6 @@
 Euler
 =====
 
-Repo for project Euler codes for fun
+Repo for project Euler.
 
-A problem a day keeps boredom away
+A problem a day keeps boredom away.
