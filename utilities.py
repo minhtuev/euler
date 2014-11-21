@@ -1,7 +1,8 @@
 def memoize(f):
     memo = {}
-    def helper(x):
-        if x not in memo:            
-            memo[x] = f(x)
-        return memo[x]
+    def helper(*args):
+    	print args
+        if args not in memo:            
+            memo[args] = f(*args)
+        return memo[args]
     return helper

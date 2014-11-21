@@ -1,5 +1,6 @@
 from utilities import memoize
 
+@memoize
 def is_permutation(n, m):
 	n = list(str(n))
 	m = list(str(m))
@@ -28,13 +29,12 @@ def is_prime(n):
 			return False
 	return True
 
-def gcd(a, b, dic = {}):
-	if not((a, b) in dic):
-		if b % a == 0:
-			dic[(a, b)] = a
-		else:
-			dic[(a, b)] = gcd(b % a, a)
-	return dic[(a, b)]
+@memoize
+def gcd(a, b):
+	if b % a == 0:
+		return a
+	else:
+		return gcd(b % a, a)
 
 @memoize
 def get_prime_factors(n):

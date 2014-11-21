@@ -8,7 +8,7 @@ def get_ordered_tuple(n):
 
 dic = {}
 n = 300
-desired_value = 5
+desired_value = 7
 
 while (True):
 	triple = n**3
