@@ -1,3 +1,5 @@
+from utilities import memoize
+
 def is_permutation(n, m):
 	n = list(str(n))
 	m = list(str(m))
@@ -19,14 +21,12 @@ def get_circular_number(n):
 		s = s[-1] + s[0:len(s)-1]
 	return L
 
-def is_prime(n, dic = {}):
-	if not(n in dic):
-		for i in range(2, int(n**0.5) + 1):
-			if n % i == 0:
-				dic[n] = False
-				return dic[n]
-		dic[n] = True
-	return dic[n]
+@memoize
+def is_prime(n):
+	for i in range(2, int(n**0.5) + 1):
+		if n % i == 0:
+			return False
+	return True
 
 def gcd(a, b, dic = {}):
 	if not((a, b) in dic):
@@ -36,21 +36,20 @@ def gcd(a, b, dic = {}):
 			dic[(a, b)] = gcd(b % a, a)
 	return dic[(a, b)]
 
-def get_prime_factors(n, dic = {}):
+@memoize
+def get_prime_factors(n):
 	m = n
-	if not(n in dic):
-		L = []
-		index = 2
-		while (n > 1):
-			if n % index == 0:
-				L.append(index)
-				while n % index == 0:
-					n = n / index
-				L.extend(get_prime_factors(n))
-				n = 1
-			index += 1
-		dic[m] = L
-	return dic[m]
+	L = []
+	index = 2
+	while (n > 1):
+		if n % index == 0:
+			L.append(index)
+			while n % index == 0:
+				n = n / index
+			L.extend(get_prime_factors(n))
+			n = 1
+		index += 1
+	return L
 
 def get_prime_factors_with_prime_list(n, primes, dic = {}):
 	m = n
