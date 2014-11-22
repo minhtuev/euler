@@ -35,7 +35,9 @@ def main():
 	prime_list = []
 	# we only care about numbers with 3 recurring digits
 	# we don't have to check the primes with two or four recurring digits.
-	# if we form 8 different numbers with them, at least once the sum of the digits (and the whole number) is divisible by three.
+	# if we form 8 different numbers with them, at least once the sum of the digits (and the whole number)
+	# is divisible by three.
+	# furthermore, you can prove that among 8 numbers, three of them must be adjacent to each other.
 	n = 101
 	while (True):
 		if count_recurring_digits(n) >= 3 and is_prime(n):
