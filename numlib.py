@@ -51,6 +51,24 @@ def get_prime_factors(n):
 		index += 1
 	return L
 
+@memoize
+def totient(n):
+	m = n
+	prime = 2
+	result = 1
+	while (n > 1):
+		if n % prime == 0:
+			result = 1 - 1.0/prime
+			while (n % prime) == 0:
+				n = n / prime
+				result = result*prime
+			if n > 1:
+				result = result*totient(n)
+				n = 1
+		prime += 1
+	return int(result)
+
+
 def get_prime_factors_with_prime_list(n, primes, dic = {}):
 	m = n
 	if not(n in dic):
