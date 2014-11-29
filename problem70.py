@@ -4,11 +4,13 @@ def main():
 	max_value = int(10**7)
 	min_ratio = float(87109)/79180
 	for n in range(2239261, max_value):
-		v = totient(n)
-		r = float(n)/v
-		if r < min_ratio and is_permutation(n, v):
-			min_ratio = r
-			print n, v, r, get_prime_factors(n)
+		factors = get_prime_factors(n)
+		if len(factors) <= 2:
+			v = totient(n)
+			r = float(n)/v
+			if r < min_ratio and is_permutation(n, v):
+				min_ratio = r
+				print n, v, r, get_prime_factors(n)
 
 def test():
 	L = [20617, 45421, 69271, 75841, 162619, 176569,
