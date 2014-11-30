@@ -14,6 +14,7 @@ def main():
 
 def main2():
 	max_range = 333334
+	max_value = 10000000
 	prime_lists = get_prime_list(max_range)
 	m = len(prime_lists)
 	min_ratio = float(87109)/79180
@@ -24,7 +25,9 @@ def main2():
 			p = prime_lists[i]
 			q = prime_lists[j]
 			n = p*q
-			v = n*(1 - 1.0/p)*(1 - 1.0/q)
+			if n > max_value:
+				break
+			v = int(n*(1 - 1.0/p)*(1 - 1.0/q))
 			r = float(n)/v
 			print p, q
 			if r < min_ratio and is_permutation(n, v):
@@ -32,7 +35,7 @@ def main2():
 				min_n = n
 				print n, v, r
 	print min_ratio, min_n
-		
+
 def test():
 	L = [20617, 45421, 69271, 75841, 162619, 176569,
 			284029, 400399, 474883, 732031, 778669,
@@ -40,6 +43,6 @@ def test():
 			1924891, 1956103, 2006737, 2044501, 2094901, 2239261]
 	for u in L:
 		print u, totient(u), get_prime_factors(u)
-
+87109
 main2()
 # test()
