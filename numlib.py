@@ -52,6 +52,28 @@ def get_prime_factors(n):
 	return L
 
 @memoize
+def get_prime_list(n):
+	if n <= 1:
+		return []
+	elif n == 2:
+		return [2]
+	else:
+		L = [2]
+		counter = 3
+		while (counter <= n):
+			checked = True
+			for a in L:
+				if counter % a == 0:
+					checked = False
+					break
+				if a**2 >= counter:
+					break
+			if (checked):
+				L.append(counter)
+			counter += 2
+		return L
+
+@memoize
 def totient(n):
 	m = n
 	prime = 2
