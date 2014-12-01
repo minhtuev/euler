@@ -1,6 +1,13 @@
 from utilities import memoize
 
 @memoize
+def factorial(n):
+	if n <= 1:
+		return 1
+	else:
+		return n*factorial(n - 1)
+
+@memoize
 def is_permutation(n, m):
 	n = list(str(n))
 	m = list(str(m))
