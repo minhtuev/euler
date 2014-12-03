@@ -97,6 +97,12 @@ def totient(n):
 		prime += 1
 	return int(result)
 
+@memoize
+def is_square(n):
+	m = int(n**0.5)
+	if m**2 == n:
+		return True
+	return False
 
 def get_prime_factors_with_prime_list(n, primes, dic = {}):
 	m = n
