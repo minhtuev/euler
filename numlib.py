@@ -104,6 +104,13 @@ def is_square(n):
 		return True
 	return False
 
+@memoize
+def get_next_prime(n):
+	m = n + 1
+	while not(is_prime(m)):
+		m +=1
+	return m
+
 def get_prime_factors_with_prime_list(n, primes, dic = {}):
 	m = n
 	if not(n in dic):
