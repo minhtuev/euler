@@ -13,6 +13,7 @@ def main():
 	n = len(A)
 	m = 4
 	max_number = 0
+
 	# going horizontally
 	for row in A:
 		product = 1
@@ -27,6 +28,7 @@ def main():
 				for new_col in range(col, col+m):
 					product *= row[new_col]
 			max_number = max(max_number, product)
+
 	# going vertically
 	for col in range(n):
 		product = 1
@@ -41,7 +43,7 @@ def main():
 				for new_row in range(row, row+m):
 					product *= A[new_row][col]
 			max_number = max(max_number, product)
-			
+
 	# going diagonally in one direction
 	for row in range(0, n - m):
 		for col in range(0, n - m):
@@ -50,6 +52,7 @@ def main():
 				product *= A[row + index][col + index]
 			max_number = max(max_number, product)
 
+	# going diagonally in the other direction
 	for row in range(m - 1, n):
 		for col in range(m - 1, n):
 			product = 1
