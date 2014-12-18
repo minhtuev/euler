@@ -111,6 +111,15 @@ def get_next_prime(n):
 		m +=1
 	return m
 
+@memoize
+def get_digit_pow(base, exp, num_digits):
+	base_10 = 10**num_digits
+	if exp <= 1:
+		return int(base**exp) % base_10
+	else:
+		result = get_digit_pow(base, exp/2, num_digits)**2 * (base**(exp % 2)) % base_10
+		return result
+
 def get_prime_factors_with_prime_list(n, primes, dic = {}):
 	m = n
 	if not(n in dic):
