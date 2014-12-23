@@ -9,6 +9,6 @@ def count_square(w, h):
 	elif h == 1:
 		return count_square(w - 1, h) + w
 	else:
-		return count_square(w, h - 1) + count_square(w - 1, h ) - count_square(w - 1, h - 1) + 2
+		return count_square(w, h - 1) + count_square(w - 1, h ) + h*w - count_square(w - 1, h - 1)
 
 print count_square(3, 2)
