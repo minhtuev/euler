@@ -11,6 +11,7 @@ def count_square(w, h):
 	else:
 		return count_square(w, h - 1) + count_square(w - 1, h ) + h*w - count_square(w - 1, h - 1)
 
+# exist analytical solution = a(a+1)b(b+1)/4
 def main():
 	h = 1
 	w = 1
