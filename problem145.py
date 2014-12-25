@@ -1,20 +1,23 @@
 from utilities import memoize
 
-@memoize
+def reverse_number(n):
+	m = 0
+	while n > 0:
+		m = m*10 + n%10
+		n = n / 10
+	return m
+
 def is_reversible(n):
-	m = int(str(n)[::-1])
-	if m < n:
-		return is_reversible(m)
-	else:
-		if len(str(n)) != len(str(m)):
+	m = reverse_number(n)
+	if n % 10 == 0:
+		return False
+	s = n + m
+	while s > 0:
+		ch = s % 10
+		if ch % 2 == 0:
 			return False
-		s = n + m
-		s = str(s)
-		for ch in s:
-			ch = int(ch)
-			if ch % 2 == 0:
-				return False
-		return True
+		s = s / 10			
+	return True
 
 def main():
 	count = 0
