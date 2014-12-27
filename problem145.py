@@ -7,10 +7,13 @@ def reverse_number(n):
 		n = n / 10
 	return m
 
+@memoize
 def is_reversible(n):
-	m = reverse_number(n)
 	if n % 10 == 0:
 		return False
+	m = reverse_number(n)
+	if m < n:
+		return is_reversible(m)
 	s = n + m
 	while s > 0:
 		ch = s % 10
@@ -21,10 +24,12 @@ def is_reversible(n):
 
 def main():
 	count = 0
-	for n in range(1, 1000000000 + 1):
+	n = 1
+	while n < 1000000000:
 		if is_reversible(n):
-			print n
 			count += 1
+			print n, count
+		n += 1
 	print "count:", count
 
 main()
