@@ -1,7 +1,7 @@
 from numlib import is_square
 
 def main():
-	max_range = 500
+	max_range = 500000	
 	dic = {}
 	checked = {}
 	max_L = max_range*3
