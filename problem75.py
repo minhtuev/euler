@@ -19,10 +19,14 @@ def main():
 						checked[(a*k, b*k)] = True
 						print a*k, b*k, (s - a - b)*k
 						k +=1
+					# free memory
+					del checked[(a, b)]
+			else:
+				# free memory
+				del checked[(a, b)]
 			b += 2
 			c2 = a*a + b*b
 			c = int(c2**0.5)
-			
 
 	count = 0
 	for key in dic:
