@@ -23,18 +23,6 @@ def is_cyclic(u, v):
 		return True
 	return False
 
-class Node(object):
-	def __init__(self, value):
-		self.value = value
-		self.neighbors = []
-
-	def add_neighbor(self, node):
-		self.neighbors.append(node)
-
-	def add_if_cyclic(self, node):
-		if is_cyclic(self.value, node.value):
-			self.add_neighbor(node)
-
 def generate_list(f, max_value = 200):
 	L = []
 	for n in range(max_value):
