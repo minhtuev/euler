@@ -4,4 +4,5 @@ class Node(object):
 		self.neighbors = []
 
 	def add_neighbor(self, node):
-		self.neighbors.append(node)
+		if not(node in self.neighbors):
+			self.neighbors.append(node)
