@@ -13,8 +13,9 @@ def dfs(node, checked, dfs_list):
 	for neighbor in node.neighbors:
 		if not(neighbor in checked):
 			checked[neighbor] = True
-			dfs_list.append(neighbor)
 			dfs(neighbor, checked, dfs_list)
+			dfs_list.append(neighbor)
+
 
 def main():
 	f =  open('p079_keylog.txt', 'r')
@@ -37,8 +38,9 @@ def main():
 	for node in list_nodes:
 		if not(node in checked):
 			checked[node] = True
-			dfs_list = [node]
+			dfs_list = []
 			dfs(node, checked, dfs_list)
+			dfs_list.append(node)
 			dfs_list = [node.value for node in dfs_list][::-1]
 			number = dfs_list + number
 
