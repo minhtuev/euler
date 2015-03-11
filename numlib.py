@@ -1,6 +1,34 @@
 from utilities import memoize
 
 @memoize
+def is_pan_digital(s):
+	if len(s) != 9:
+		return False
+	dic = {}
+	for c in s:
+		if c == '0':
+			return False
+		if c not in dic:
+			dic[c] = 1
+		else:
+			return False
+	return True
+
+def fibonacci():
+	a = 1
+	b = 1
+	yield (a, 1)
+	yield (b, 2)
+	n = a + b
+	count = 3
+	while (True):
+		yield (n, count)
+		a = b
+		b = n
+		n = a + b
+		count +=1 
+
+@memoize
 def factorial(n):
 	if n <= 1:
 		return 1

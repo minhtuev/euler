@@ -19,4 +19,5 @@ def main():
 		if m % 10 == 0:
 			print n, m
 
+#print count_sum(5)
 main()
