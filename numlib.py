@@ -28,6 +28,14 @@ def fibonacci():
 		n = a + b
 		count +=1 
 
+def get_proper_divisor(n):
+	yield 1
+	for d in range(2, int(n**0.5) +1):
+		if n % d == 0:
+			yield d
+			if n/d != d:
+				yield n/d
+
 @memoize
 def factorial(n):
 	if n <= 1:
