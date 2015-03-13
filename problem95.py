@@ -28,8 +28,5 @@ def main():
 					max_length = len(L)
 					print number, min_number, max_length, L
 					print "---"
-		#if number % 1000 == 0:
-		#	print number
 
 main()
-# print get_amicable_numbers(12496, {})
