@@ -11,7 +11,7 @@ def main():
 		if (r.is_integer()):
 			area = (a + 1)*r/4
 			print a, a, a + 1, area
-			perimeter += (3*a  + 1)
+			perimeter += (3*a  + 1)	
 		a += 2
 	print perimeter
 
