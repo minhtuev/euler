@@ -1,4 +1,3 @@
-cd /box/www/euler
 file="$1"
 echo $file >> excuses
 git add .
